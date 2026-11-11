@@ -25,8 +25,9 @@ body {
 .Lineas{
   max-width: 1000px;       
   margin: 0 auto;          
-  background-color: #ffffff; 
-  min-height: 100vh;        
+  background: linear-gradient(to bottom, #161515 0%, #f8f3f3 50%, #0c0b0b 100%);
+  background-attachment: fixed;
+  min-height: 100vh;      
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -47,7 +48,7 @@ html {
 }
 
 .Inicio{
-  min-height: 85vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,23 +73,52 @@ html {
   justify-content: center;
 }
 
+.introduccion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto 60px auto;
+  padding: 40px 30px;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .Titulo{
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #000;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 25px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.Titulo:after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #333333;
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
 }
 
 .present-content{
-  max-width: 800px;
-  font-size: 1.05rem;
-  color: #000;
-  line-height: 1.6;
-  margin: 0 auto 25px auto;
+  max-width: 750px;
+  font-size: 1.1rem;
+  color: #333333;
+  line-height: 1.8;
+  margin: 0 auto 30px auto;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .Imagen_introduccion{
@@ -98,6 +128,7 @@ html {
   height: auto;
   margin: 0 auto 40px auto;
   border-radius: 8px;
+  margin-bottom: 60px;
 }
 
 .Biografia_de_mi{
@@ -105,14 +136,22 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 60px auto;
+  padding: 40px 30px;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px); 
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .Tittle_Biografia{
-    font-size: 2.8rem;
+  font-size: 2.8rem;
   font-weight: 700;
   color: #000;
-  margin-top: 100px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 50px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -124,6 +163,7 @@ html {
   line-height: 1.6;
   margin-bottom: 50px;
   text-align: center;
+  text-justify: inter-word;
 }
 
 .boton-content{
