@@ -35,6 +35,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section{
+  scroll-margin-top: 20vh;
+}
+
 .content-pantalla{
   max-width: 75%;              
   margin: 0 auto;              
@@ -48,7 +52,7 @@ html {
 }
 
 .Inicio{
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +82,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 40px auto 60px auto;
+  margin: 20px auto 60px auto;
   padding: 40px 30px;
   max-width: 850px;
   background: rgba(255, 255, 255, 0.85);
@@ -86,6 +90,7 @@ html {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  scroll-margin-top: 5vh;
 }
 
 .Titulo{
@@ -136,7 +141,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 60px auto;
+  margin: 60px auto 20px auto;
   padding: 40px 30px;
   max-width: 850px;
   background: rgba(255, 255, 255, 0.85);
@@ -207,10 +212,14 @@ html {
   transition: all 0.3s ease;
 }
 
+.cosas_sobre_mi{
+  scroll-margin-top: 5vh;
+}
+
 .section-tittle {
   text-align: center;
   padding: 10px;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-bottom: 30px;
   color: #000;
 }
