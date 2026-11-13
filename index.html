@@ -9,9 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <audio id="fondo_musica" autoplay loop>
-        <source src="Musica.mp3" type="audio/mpeg">
-    </audio>
     <video autoplay muted loop id="bg-video">
         <source src="Nieve.mp4" type="video/mp4">
     </video>
@@ -185,9 +182,9 @@
     </div>
     </section>
 </main>
-<audio id="fondo_musica" autoplay loop>
-    <source src="Musica.mp3" type="audio/mpeg">
-</audio>
+<audio id="musica-fondo" src="musica.mp3" loop preload="auto"></audio>
+<button id="btn-musica" title="Reproducir o pausar música">▶️</button>
+    <button id="btn-arriba" title="Volver arriba">↑</button>
 <button id="btn-arriba" title="Volver arriba">↑</button>
 <script src="script.js"></script>
 </body>

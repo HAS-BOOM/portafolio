@@ -31,13 +31,18 @@ if (btnArriba) {
 }
 
 const musica = document.getElementById("musica-fondo");
+const btnMusica = document.getElementById("btn-musica");
 
-if (musica) {
+if (musica && btnMusica) {
     musica.volume = 0.3;
 
-    musica.play().catch(() => {
-        document.addEventListener("click", () => {
+    btnMusica.addEventListener("click", () => {
+        if (musica.paused) {
             musica.play();
-        }, { once: true });
+            btnMusica.textContent = "⏸️";
+        } else {
+            musica.pause();
+            btnMusica.textContent = "▶️";
+        }
     });
 }
