@@ -327,3 +327,76 @@ hr {
     background: #000000;
     transform: translateY(-4px); 
 }
+
+@media (max-width: 768px) {
+  .Lineas, 
+  .content-pantalla {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 10px 5px !important;
+    }
+    .boton-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 5px;
+    }
+
+    .boton {
+      font-size: 0.85rem;
+      padding: 8px 12px;
+      margin: 2px;
+    }
+
+    .Titulo-introduccion {
+      font-size: 1.7rem !important;
+      padding: 0 10px;
+    }
+
+    .subtitulo {
+      font-size: 1rem !important;
+      padding: 0 15px;
+    }
+
+    .Titulo, 
+    .Tittle_Biografia, 
+    .section-tittle {
+        font-size: 1.6rem !important;
+        letter-spacing: 1.5px;
+    }
+
+    .Introduccion, 
+    .Biografia_de_mi {
+      width: 92% !important;
+      padding: 25px 18px !important;
+      margin: 30px auto !important;
+    }
+
+    .present-content, 
+    .Content_Biografia {
+      font-size: 0.98rem !important;
+      line-height: 1.6;
+      text-align: left !important; 
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nombre_carta {
+      width: 90% !important;
+      max-width: 320px;
+      margin: 0 auto !important;
+    }
+
+    .control-volumen #slider-volumen {
+      width: 65px;
+      opacity: 1;
+      margin-left: 6px;
+    }
+}
