@@ -303,3 +303,27 @@ hr {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
 }
+
+#btn-arriba {
+    display: none;            
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#btn-arriba:hover {
+    background: #000000;
+    transform: translateY(-4px); 
+}
