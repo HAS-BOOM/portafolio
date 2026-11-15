@@ -1,3 +1,4 @@
+// 1. EFECTO MÁQUINA DE ESCRIBIR EN TU SUBTÍTULO
 const subtitulo = document.querySelector(".subtitulo");
 if (subtitulo) {
     const textoOriginal = subtitulo.textContent;
@@ -14,13 +15,28 @@ if (subtitulo) {
     escribirTexto();
 }
 
+// 2. HACER QUE LAS TARJETAS GIREN AL HACER CLIC (Celulares y PC)
+const cartas = document.querySelectorAll(".card-inner");
+cartas.forEach(carta => {
+    carta.addEventListener("click", () => {
+        if (carta.style.transform === "rotateY(180deg)") {
+            carta.style.transform = "rotateY(0deg)";
+        } else {
+            carta.style.transform = "rotateY(180deg)";
+        }
+    });
+});
+
+// 3. BOTÓN FLOTANTE "VOLVER ARRIBA" AL HACER SCROLL
 const btnArriba = document.getElementById("btn-arriba");
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        btnArriba.style.display = "block";
-    } else {
-        btnArriba.style.display = "none";
+    if (btnArriba) {
+        if (window.scrollY > 300) {
+            btnArriba.style.display = "block";
+        } else {
+            btnArriba.style.display = "none";
+        }
     }
 });
 
@@ -30,16 +46,24 @@ if (btnArriba) {
     });
 }
 
+// 4. BOTÓN PARA REPRODUCIR / PAUSAR MÚSICA
 const musica = document.getElementById("musica-fondo");
 const btnMusica = document.getElementById("btn-musica");
 
 if (musica && btnMusica) {
     musica.volume = 0.3;
 
-    btnMusica.addEventListener("click", () => {
+    btnMusica.addEventListener("click", (e) => {
+        e.stopPropagation();
+
         if (musica.paused) {
-            musica.play();
-            btnMusica.textContent = "⏸️";
+            musica.play()
+                .then(() => {
+                    btnMusica.textContent = "⏸️";
+                })
+                .catch((error) => {
+                    console.error("Error al reproducir el audio:", error);
+                });
         } else {
             musica.pause();
             btnMusica.textContent = "▶️";
