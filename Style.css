@@ -213,7 +213,7 @@ section {
     transition: all 0.3s ease;
 }
 
-.cosas_sobre_mi {
+.mis_intereses {
     scroll-margin-top: 5vh;
 }
 
@@ -312,7 +312,6 @@ hr {
     color: #333;
 }
 
-/* Botones flotantes */
 #btn-musica, #btn-arriba {
     position: fixed;
     bottom: 25px;
@@ -347,9 +346,6 @@ hr {
     transform: translateY(-4px);
 }
 
-/* =========================================================
-   DISEÑO RESPONSIVO PARA CELULARES Y TABLETS (Max 768px)
-   ========================================================= */
 @media screen and (max-width: 768px) {
     .Lineas {
         width: 100%;

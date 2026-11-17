@@ -1,4 +1,3 @@
-// 1. EFECTO MÁQUINA DE ESCRIBIR EN TU SUBTÍTULO
 const subtitulo = document.querySelector(".subtitulo");
 if (subtitulo) {
     const textoOriginal = subtitulo.textContent;
@@ -15,7 +14,6 @@ if (subtitulo) {
     escribirTexto();
 }
 
-// 2. HACER QUE LAS TARJETAS GIREN AL HACER CLIC (Celulares y PC)
 const cartas = document.querySelectorAll(".card-inner");
 cartas.forEach(carta => {
     carta.addEventListener("click", () => {
@@ -27,7 +25,6 @@ cartas.forEach(carta => {
     });
 });
 
-// 3. BOTÓN FLOTANTE "VOLVER ARRIBA" AL HACER SCROLL
 const btnArriba = document.getElementById("btn-arriba");
 
 window.addEventListener("scroll", () => {
@@ -46,7 +43,6 @@ if (btnArriba) {
     });
 }
 
-// 4. BOTÓN PARA REPRODUCIR / PAUSAR MÚSICA
 const musica = document.getElementById("musica-fondo");
 const btnMusica = document.getElementById("btn-musica");
 
