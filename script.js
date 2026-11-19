@@ -66,3 +66,23 @@ if (musica && btnMusica) {
         }
     });
 }
+
+const visorZoom = document.getElementById("visor-zoom");
+const imagenAmpliada = document.getElementById("imagen-ampliada");
+const cerrarZoom = document.getElementById("cerrar-zoom");
+const fotosActividad = document.querySelectorAll(".foto-actividad");
+
+if (visorZoom && imagenAmpliada) {
+    fotosActividad.forEach(foto => {
+        foto.addEventListener("click", (e) => {
+            e.stopPropagation(); // Evita que la tarjeta se cierre al tocar la foto en móvil
+            imagenAmpliada.src = foto.src;
+            visorZoom.style.display = "flex";
+        });
+    });
+
+    // Cierra el zoom al hacer clic en cualquier parte del fondo oscuro o en la X
+    visorZoom.addEventListener("click", () => {
+        visorZoom.style.display = "none";
+    });
+}
