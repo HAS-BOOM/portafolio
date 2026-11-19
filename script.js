@@ -13,8 +13,7 @@ if (subtitulo) {
     }
     escribirTexto();
 }
-
-const cartas = document.querySelectorAll(".card-inner");
+const cartas = document.querySelectorAll("section:not(#mis_intereses) .card-inner");
 cartas.forEach(carta => {
     carta.addEventListener("click", () => {
         if (carta.style.transform === "rotateY(180deg)") {
@@ -24,7 +23,6 @@ cartas.forEach(carta => {
         }
     });
 });
-
 const btnArriba = document.getElementById("btn-arriba");
 
 window.addEventListener("scroll", () => {
@@ -42,7 +40,6 @@ if (btnArriba) {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
-
 const musica = document.getElementById("musica-fondo");
 const btnMusica = document.getElementById("btn-musica");
 
@@ -67,6 +64,13 @@ if (musica && btnMusica) {
     });
 }
 
+const tarjetasActividad = document.querySelectorAll(".tarjeta-actividad");
+tarjetasActividad.forEach(tarjeta => {
+    tarjeta.addEventListener("click", () => {
+        tarjeta.classList.toggle("activa");
+    });
+});
+
 const visorZoom = document.getElementById("visor-zoom");
 const imagenAmpliada = document.getElementById("imagen-ampliada");
 const cerrarZoom = document.getElementById("cerrar-zoom");
@@ -75,14 +79,104 @@ const fotosActividad = document.querySelectorAll(".foto-actividad");
 if (visorZoom && imagenAmpliada) {
     fotosActividad.forEach(foto => {
         foto.addEventListener("click", (e) => {
-            e.stopPropagation(); // Evita que la tarjeta se cierre al tocar la foto en móvil
+            e.stopPropagation();
+            if (!foto.getAttribute("src")) return;
             imagenAmpliada.src = foto.src;
             visorZoom.style.display = "flex";
         });
     });
-
-    // Cierra el zoom al hacer clic en cualquier parte del fondo oscuro o en la X
     visorZoom.addEventListener("click", () => {
         visorZoom.style.display = "none";
+    });
+}
+
+const cartaJuegos = document.getElementById("carta-juegos");
+if (cartaJuegos) {
+    const portadaJuegos = cartaJuegos.querySelector(".card-front");
+    let golpes = 0;
+
+    portadaJuegos.addEventListener("click", (e) => {
+        e.stopPropagation();
+        golpes++;
+        portadaJuegos.classList.add("golpe-minecraft");
+        setTimeout(() => portadaJuegos.classList.remove("golpe-minecraft"), 250);
+
+        if (golpes >= 5) {
+            portadaJuegos.classList.add("muerte-minecraft");
+        }
+    });
+
+    // Si tocas el contenido revelado, la portada reaparece para volver a jugar
+    cartaJuegos.querySelector(".card-back").addEventListener("click", () => {
+        portadaJuegos.classList.remove("muerte-minecraft");
+        golpes = 0;
+    });
+}
+
+const cartaPeliculas = document.getElementById("carta-peliculas");
+if (cartaPeliculas) {
+    const portadaPeliculas = cartaPeliculas.querySelector(".card-front");
+
+    portadaPeliculas.addEventListener("click", (e) => {
+        e.stopPropagation();
+        portadaPeliculas.classList.add("chasquido-marvel");
+    });
+
+    cartaPeliculas.querySelector(".card-back").addEventListener("click", () => {
+        portadaPeliculas.classList.remove("chasquido-marvel");
+    });
+}
+
+const cartaLibros = document.getElementById("carta-libros");
+if (cartaLibros) {
+    const portadaLibros = cartaLibros.querySelector(".card-front");
+
+    portadaLibros.addEventListener("click", (e) => {
+        e.stopPropagation();
+        portadaLibros.classList.add("abrir-libro");
+    });
+
+    cartaLibros.querySelector(".card-back").addEventListener("click", () => {
+        portadaLibros.classList.remove("abrir-libro");
+    });
+}
+
+const cartaIA = document.getElementById("carta-ia");
+if (cartaIA) {
+    const portadaIA = cartaIA.querySelector(".card-front");
+    let hackeando = false;
+
+    portadaIA.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (hackeando) return;
+        hackeando = true;
+        portadaIA.classList.add("modo-ia");
+
+        const titulos = portadaIA.querySelectorAll("h2, p");
+        const textosOriginales = Array.from(titulos).map(t => t.textContent);
+        const caracteres = "01#$%&@*?<>";
+
+        const intervalo = setInterval(() => {
+            titulos.forEach((el, index) => {
+                el.textContent = textosOriginales[index]
+                    .split("")
+                    .map(letra => letra === " " ? " " : caracteres[Math.floor(Math.random() * caracteres.length)])
+                    .join("");
+            });
+        }, 65);
+
+        setTimeout(() => {
+            clearInterval(intervalo);
+            titulos.forEach((el, index) => {
+                el.textContent = textosOriginales[index];
+            });
+            portadaIA.classList.remove("modo-ia");
+            portadaIA.classList.add("ia-revelada");
+            hackeando = false;
+        }, 1500);
+    });
+
+    cartaIA.querySelector(".card-back").addEventListener("click", () => {
+        portadaIA.classList.remove("ia-revelada");
     });
 }
